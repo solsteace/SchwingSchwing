@@ -1,0 +1,58 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+
+.stats {
+    padding: G.$yPadding G.$xPadding;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 38px;
+    justify-content: space-between;
+    padding: 120px min(30%, 100px);
+    
+    background: white;
+    filter: drop-shadow(0px 40px 20px rgba(0, 0, 0, 0.1));
+
+    &__icon {
+        position: relative;
+        background: G.$accent-bg;
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+
+        > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:  20px;
+            height: 20px;
+        }
+    }
+
+    &__item {
+        flex: 1;
+        display: flex;
+        gap: 36px;
+    }
+
+    &__count {
+        font-weight: bolder;
+        font-size: 25px;
+    }
+
+    &__metric {
+        @extend .text--dim;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .stats {
+        margin: 0px auto;
+        padding: 100px 5%;
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}

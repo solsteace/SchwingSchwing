@@ -1,0 +1,66 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+
+.hero {
+    padding: G.$yPadding G.$xPadding;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 80px;
+
+    &__image {
+        flex: 1;
+    }
+
+    &__about {
+        flex: 1;
+
+        > * {
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+.hero__about {
+    text-align: center;
+
+    > * {
+        margin-bottom: 20px;
+    }
+
+    > p {
+        @extend .text--dim;
+        @extend .text--medium;
+    }
+
+    > button {
+        width: 250px;
+        height: 60px;
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .hero {
+        padding: G.$yPadding--desktop G.$xPadding--desktop;
+        align-items: center;
+        justify-content: space-between;
+
+        &__image {
+            > img {
+                margin-left: auto;
+                width: 90%;
+            }
+            flex: 1;
+        }
+
+        &__about {
+            text-align: left;
+
+            > h1 {
+                font-size: 50px;
+            }
+        }
+    }
+}

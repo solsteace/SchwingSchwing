@@ -1,0 +1,65 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+
+.subscription {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 38px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 70px 0px;
+
+    background: white;
+
+    > button {
+        margin: auto;
+        padding: 0px;
+        width: 250px;
+        height: 65px;
+    }
+
+    &__about {
+        width: 100%;
+
+        > h2 {
+            margin: auto;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        > p {
+            @extend .text--medium;
+            @extend .text--dim;
+        }
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .subscription {
+        position: absolute;
+        top: 90%;
+        left: 0%;
+        right: 0%;
+        padding: 70px;
+
+        text-align: left;
+        margin: 0px auto;
+        width: 80%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        filter: drop-shadow(0px 40px 20px rgba(0, 0, 0, 0.1));
+
+        &__about {
+            > h2 {
+                margin-left: 0px;
+                width: 16ch;
+            }
+        }
+
+        > button {
+            margin: 0px;
+        }
+    }
+}

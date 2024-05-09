@@ -1,0 +1,17 @@
+@use "../__globals" as G;
+
+.outline--round {
+    border-radius: 10px;
+}
+
+.outline--rounder {
+    border-radius: 50px;
+}
+
+.outline--accent {
+    border: 1px solid G.$accent;
+}
+
+.outline--dim {
+    border: 1px solid lightgrey;
+}

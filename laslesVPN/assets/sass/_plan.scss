@@ -1,0 +1,114 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+@use "./components/_outline" as OUTLINE;
+
+.plan {
+    position: relative;
+    text-align: center;
+    padding: calc(G.$yPadding*5) G.$xPadding;
+
+    background: rgba(250, 250, 250, 1);
+
+    > * {
+        margin-bottom: 20px;
+    }
+
+    > h2 {
+        font-size: 32px;
+    }
+
+    &__packages {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+    }
+
+    > p {
+        @extend .text--dim;
+        padding: 0px 5%;
+    }
+}
+
+.package {
+    @extend .outline--dim;
+    background: white;
+    position: relative;
+    padding: 85px 70px 170px 70px;
+    border-width: 2px;
+    border-radius: 10px;
+
+    > * {
+        margin-bottom: 30px;
+    }
+
+    > h3 {
+        @extend .text--large;
+    }
+
+    &__pricing {
+        position: absolute;
+        bottom: 0%;
+        left: 0%; right: 0%;
+
+        > * {
+            margin-bottom: 20px;
+        }
+
+        > button {
+            width: 175px;
+            height: 45px;
+            border-width: 2px;
+            border-radius: 50px;
+        }
+
+        > p {
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+
+    &--active {
+        border: 2px solid G.$accent;
+
+        > .package__pricing > button {
+            border-width: 0px;
+        }
+    }
+
+    &__perks {
+        margin-bottom: auto;
+    }
+}
+
+.perk {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin: 18px 10px;
+
+    > p {
+        @extend .text--small;
+        @extend .text--dim;
+        text-align: left;
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .plan {
+        padding: G.$yPadding--desktop G.$xPadding--desktop;
+
+        > h2 {
+            font-size: 35px;
+        }
+
+        &__packages {
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    .package {
+        padding: 85px 60px 170px 60px;
+    }
+}

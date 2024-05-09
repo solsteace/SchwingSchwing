@@ -1,0 +1,67 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+
+.features {
+    text-align: center;
+    padding: 200px G.$xPadding;
+
+    &__image {
+        margin-bottom: 70px;
+    };
+
+    &__about {
+        > * {
+            margin-bottom: 20px;
+        }
+
+        > p {
+            @extend .text--dim;
+        }
+    }
+
+}
+
+.feature__item {
+    @extend .text--dim;
+    @extend .text--small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .features {
+        gap: 20px;
+        align-items: center;
+
+        display: flex;
+        text-align: left;
+        padding: calc(G.$yPadding--desktop*3) G.$xPadding--desktop;
+
+        &__image {
+            > img {
+                width: 90%;
+            }
+        }
+
+        &__about {
+            h2 {
+                font-size: 35px;
+            }
+        }
+
+        > * {
+            flex: 1;
+        }
+    }
+
+    .feature__item {
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+}
+

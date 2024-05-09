@@ -1,0 +1,131 @@
+@use "./__globals" as G;
+@use "./components/_outline" as OUTLINE;
+@use "./components/_text" as TEXT;
+
+.review {
+    position: relative;
+    text-align: center;
+    padding: G.$yPadding G.$xPadding;
+
+
+
+    > p { @extend .text--dim; }
+    > h2 { font-size: 28px; }
+    > * { margin-bottom: 40px; }
+
+    &__testimonies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+
+        > :nth-child(n+2) {
+            display: none;
+        }
+        
+        > * { flex: 1; }
+
+        > :nth-child(n + 2) {
+            @extend .outline--dim;
+        }
+
+    }
+}
+
+.testimony {
+    @extend .outline--accent;
+    @extend .outline--round;
+    text-align: left;
+    border-width: 2px;
+    padding: 30px;
+
+
+    &__header {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    &__user { 
+        flex: 1; 
+
+        > * {
+            line-height: 1.5rem;
+        }
+    }
+
+    &__username { 
+        font-weight: bold;
+        @extend .text--large;
+    }
+    
+    &__location { 
+        @extend .text--dim;
+        @extend .text--small;
+    }
+
+    &__rating {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    &__body {
+        @extend .text--medium;
+        &::before { content: "\""; }
+        &::after { content: "\"."; }
+    }
+
+
+
+    &__controls {
+        margin-bottom: 70px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__paginator {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    &__paginPoint {
+        background: G.$dim;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+
+        &--active {
+            width: 30px;
+            background: G.$accent;
+        }
+    }
+
+    &__paginControl {
+        display: flex;
+        gap: 20px;
+
+        > div {
+            filter: none;
+
+            > img {
+                height: 30%;
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    .review {
+        padding: G.$yPadding--desktop G.$xPadding--desktop;
+        padding-bottom: calc(G.$yPadding*5);
+
+        &__testimonies {
+            > :nth-child(n+2) {
+                display: block;
+            }
+        }
+    }
+}

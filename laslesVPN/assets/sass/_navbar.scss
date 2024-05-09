@@ -1,0 +1,61 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+
+header {
+    padding: G.$yPadding G.$xPadding;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+}
+
+
+.header {
+    &__nav,
+    &__auth {
+        display: none;
+    }
+
+    &__auth {
+        > button {
+            width: 150px;
+            height: 45px;
+        }
+    }
+
+    &__nav--collapse {
+        display: block;
+    }
+}
+
+.nav__menu {
+    > a {
+        color: G.$dim;
+
+        :hover {
+            color: G.$accent;
+            font-weight: bold;
+        }
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    header {
+        padding: G.$yPadding--desktop G.$xPadding--desktop;
+    }
+
+    .nav__menuList {
+        display: flex;
+        gap: 40px;
+    }
+
+    .header__nav,
+    .header__auth {
+        display: block;
+    }
+
+    .header__nav--collapse {
+        display: none;
+    }
+}

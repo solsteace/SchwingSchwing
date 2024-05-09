@@ -1,0 +1,85 @@
+@use "__globals" as G;
+@use "./components/_text" as TEXT;
+@use "./components/_outline" as OUTLINE;
+
+footer {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+
+    padding: calc(G.$yPadding*2) G.$xPadding;
+    background: rgba(250, 250, 250, 1);
+
+}
+
+.footer {
+    &__socialMedias {
+        display: flex;
+        align-items: center;
+
+        > .icon > img {
+            top: 0%; left: 0%;
+            transform: translateX(-30%); /* WORKAROUND SINCE THESE ASSETS HAS EXCESSIVE SPACE*/
+        }
+    }
+
+    &__navGroups {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    &__about {
+        flex: 0.8;
+
+        > * {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__brandDescription { @extend .text--dim; @extend .text--medium; }
+
+    &__copyright { 
+        @extend .text--dim; 
+        opacity: 50%;
+        transform: translateY(-45%);/* WORKAROUND SINCE THESE ASSETS HAS EXCESSIVE SPACE*/ 
+    }
+}
+
+
+.navGroup {
+    > p {
+        @extend .text--large;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    &__menu { 
+        margin-bottom: 20px; 
+        > a {
+            @extend .text--dim;
+        }
+    }
+}
+
+@media (min-width: G.$breakpointDesktop) {
+    footer {
+        flex-direction: row;
+        padding: calc(G.$yPadding--desktop*5) G.$xPadding--desktop;
+        padding-bottom: G.$yPadding;
+    }
+
+    .footer {
+        &__navGroups {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__brandDescription {
+            width: 70%;
+        }
+    }
+}
