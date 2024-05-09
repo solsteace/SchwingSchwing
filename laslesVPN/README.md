@@ -5,7 +5,7 @@ may have some style adopted from desktop and the others from mobile.
 
 ## Design
 ### Desktop (width: 1440px)
-![./Home - Desktop.png](Desktop design)
+<img src="./Home - Desktop.png" alt="Logo" width="100" height="100">
 
 ### Mobile (width: 425px)
-![./Home - Mobile.png](Desktop design)
+<img src="./Home - Mobile.png" alt="Logo" width="100" height="100">
