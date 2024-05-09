@@ -4,5 +4,8 @@ The design is only available for desktop and mobile, so for any devices in betwe
 may have some style adopted from desktop and the others from mobile.
 
 ## Design
-- Desktop (width: 1440px)
-- Mobile (width: 425px)
+### Desktop (width: 1440px)
+![./Home - Desktop.png](Desktop design)
+
+### Mobile (width: 425px)
+![./Home - Mobile.png](Desktop design)
